@@ -598,8 +598,6 @@ kpxc.url = null;
 
 // Add page to Site Preferences with Username-only detection enabled. Set from the popup
 kpxc.addToSitePreferences = async function(sites) {
-    kpxc.initSitePreferences();
-
     // Returns a predefined URL for certain sites
     let site = kpxcSites.definedURL(trimURL(window.top.location.href));
 
@@ -925,8 +923,6 @@ kpxc.getSite = function(sites) {
     }
 
     let site = trimURL(sites[0]);
-    kpxc.initSitePreferences();
-
     if (slashNeededForUrl(site)) {
         site += '/';
     }
@@ -1119,17 +1115,6 @@ kpxc.initLoginPopup = function() {
 
     // Generate popup-list of usernames + descriptions
     sendMessage('popup_login', usernames);
-};
-
-// Delete previously created Object if it exists. It will be replaced by an Array
-kpxc.initSitePreferences = function() {
-    if (kpxc.settings['sitePreferences'] !== undefined && kpxc.settings['sitePreferences'].constructor === Object) {
-        delete kpxc.settings['sitePreferences'];
-    }
-
-    if (!kpxc.settings['sitePreferences']) {
-        kpxc.settings['sitePreferences'] = [];
-    }
 };
 
 kpxc.passwordFilled = async function() {
@@ -1329,8 +1314,6 @@ kpxc.setValueWithChange = function(field, value) {
 
 // Returns true if site is ignored
 kpxc.siteIgnored = async function(condition) {
-    kpxc.initSitePreferences();
-
     if (kpxc.settings.sitePreferences) {
         let currentLocation;
         try {
