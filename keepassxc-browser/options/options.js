@@ -248,11 +248,9 @@ options.initGeneralSettings = function() {
     const siteListing = $('#predefinedSiteList');
     if (siteListing) {
         // From sites.js
-        for (const site of siteList) {
-            console.log(site);
-            const br = document.createElement('br');
+        for (const site of PREDEFINED_SITELIST) {
             const elem = document.createElement('span');
-            elem.textContent = site.url;
+            elem.textContent = site;
             siteListing.append(document.createElement('br'));
             siteListing.append(elem);
         }

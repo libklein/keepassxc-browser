@@ -599,7 +599,7 @@ kpxc.url = null;
 // Add page to Site Preferences with Username-only detection enabled. Set from the popup
 kpxc.addToSitePreferences = async function(sites) {
     // Returns a predefined URL for certain sites
-    let site = kpxcSites.definedURL(trimURL(window.top.location.href));
+    let site = trimURL(window.top.location.href);
 
     // Check if the site already exists -> update the current settings
     let siteExists = false;
@@ -1336,9 +1336,11 @@ kpxc.siteIgnored = async function(condition) {
         }
 
         // Check for predefined sites
-        for (const site of kpxc.settings.predefinedSites) {
-            if (siteMatch(site.url, currentLocation) || site.url === currentLocation) {
-                kpxc.singleInputEnabledForPage = site.usernameOnly;
+        if (kpxc.settings.usePredefinedSites) {
+            for (const url of PREDEFINED_SITELIST) {
+                if (siteMatch(url, currentLocation) || url === currentLocation) {
+                    kpxc.singleInputEnabledForPage = true;
+                }
             }
         }
     }

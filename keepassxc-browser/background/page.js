@@ -172,16 +172,6 @@ page.initSitePreferences = async function() {
         page.settings['sitePreferences'] = [];
     }
 
-    if (!page.settings['predefinedSites']) {
-        page.settings['predefinedSites'] = [];
-    }
-
-    if (!page.settings.usePredefinedSites) {
-        return;
-    }
-
-    // Initialize predefined sites
-    kpxcSites.addAllCommonSites(page.settings);
     await browser.storage.local.set({ 'settings': page.settings });
 };
 

@@ -98,7 +98,6 @@
         "kpxcEvent": true,
         "kpxcPasswordDialog": true,
         "kpxcPasswordIcons": true,
-        "kpxcSites": true,
         "kpxcTOTPIcons": true,
         "kpxcUsernameIcons": true,
         "kpxcUI": true,
@@ -112,6 +111,7 @@
         "slashNeededForUrl": true,
         "statusResponse": true,
         "tr": true,
-        "trimURL", true
+        "trimURL": true,
+        "PREDEFINED_SITELIST": true
     }
 }
