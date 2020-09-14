@@ -56,11 +56,11 @@ kpxcSites.definedURL = function(url) {
 // Adds all common sites with multi-page login to Site Preferences
 kpxcSites.addAllCommonSites = function(settings) {
     for (const site of siteList) {
-        if (settings['sitePreferences'].some(e => e.url === site.rep)) {
+        if (settings['predefinedSites'].some(e => e.url === site.rep)) {
             continue;
         }
 
-        settings['sitePreferences'].push({
+        settings['predefinedSites'].push({
             url: site.rep,
             ignore: IGNORE_NOTHING,
             usernameOnly: true

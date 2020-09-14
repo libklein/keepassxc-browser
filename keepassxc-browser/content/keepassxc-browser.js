@@ -1334,6 +1334,13 @@ kpxc.siteIgnored = async function(condition) {
                 kpxc.singleInputEnabledForPage = site.usernameOnly;
             }
         }
+
+        // Check for predefined sites
+        for (const site of kpxc.settings.predefinedSites) {
+            if (siteMatch(site.url, currentLocation) || site.url === currentLocation) {
+                kpxc.singleInputEnabledForPage = site.usernameOnly;
+            }
+        }
     }
 
     return false;

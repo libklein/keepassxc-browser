@@ -716,7 +716,7 @@
         "description": "Use predefined sites checkbox text."
     },
     "optionsUsePredefinedSitesHelpText": {
-        "message": "Adds most common sites automatically to Site Preferences and enables the Username-only option. Click below to see the site list.",
+        "message": "Adds common sites that have username-only login forms to the site preferences.",
         "description": "Use predefined sites option help text."
     },
     "optionsShowLoginFormIconHelpText": {
@@ -928,8 +928,8 @@
         "description": "Part of confirmation text when removing saved custom login fields."
     },
     "optionsSitePreferencesNotFound": {
-        "message": "No ignored sites found.",
-        "description": "Shown when no ignored sites are saved."
+        "message": "No site preferences found.",
+        "description": "Shown when no site preferences are saved."
     },
     "optionsSitePreferencesRemove": {
         "message": "Remove site?",

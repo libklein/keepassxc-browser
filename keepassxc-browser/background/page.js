@@ -172,6 +172,10 @@ page.initSitePreferences = async function() {
         page.settings['sitePreferences'] = [];
     }
 
+    if (!page.settings['predefinedSites']) {
+        page.settings['predefinedSites'] = [];
+    }
+
     if (!page.settings.usePredefinedSites) {
         return;
     }
