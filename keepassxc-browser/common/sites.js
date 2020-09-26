@@ -9,5 +9,6 @@ const PREDEFINED_SITELIST = [
     'https://www.amazon.co.uk/*',
     'https://signin.aws.amazon.com/*',
     'https://www.upwork.com/ab/*',
-    'https://home.personalcapital.com/*'
+    'https://home.personalcapital.com/*',
+    'https://auth.services.adobe.com/*'
 ];
