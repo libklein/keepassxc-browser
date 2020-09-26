@@ -103,16 +103,15 @@ kpxcUI.calculateIconOffset = function(field, size) {
 
 kpxcUI.setIconPosition = function(icon, field) {
     const rect = field.getBoundingClientRect();
-    const size = (document.dir !== 'rtl') ? Number(icon.getAttribute('size')) : 0;
+    const size = Number(icon.getAttribute('size'));
     const offset = kpxcUI.calculateIconOffset(field, size);
+    const left = kpxcUI.bodyStyle.position.toLowerCase() === 'relative' ? rect.left - kpxcUI.bodyRect.left : rect.left;
+    const top = kpxcUI.bodyStyle.position.toLowerCase() === 'relative' ? rect.top - kpxcUI.bodyRect.top : rect.top;
 
-    if (kpxcUI.bodyStyle.position.toLowerCase() === 'relative') {
-        icon.style.top = Pixels(rect.top - kpxcUI.bodyRect.top + document.scrollingElement.scrollTop + offset + 1);
-        icon.style.left = Pixels(rect.left - kpxcUI.bodyRect.left + document.scrollingElement.scrollLeft + field.offsetWidth - size - offset);
-    } else {
-        icon.style.top = Pixels(rect.top + document.scrollingElement.scrollTop + offset + 1);
-        icon.style.left = Pixels(rect.left + document.scrollingElement.scrollLeft + field.offsetWidth - size - offset);
-    }
+    icon.style.top = Pixels(top + document.scrollingElement.scrollTop + offset + 1);
+    icon.style.left = document.dir === 'rtl'
+                    ? Pixels((left + document.scrollingElement.scrollLeft) + offset)
+                    : Pixels(left + document.scrollingElement.scrollLeft + field.offsetWidth - size - offset);
 };
 
 kpxcUI.deleteHiddenIcons = function(iconList, attr) {
